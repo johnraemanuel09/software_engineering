@@ -13,8 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    $stmt = $db->prepare("INSERT INTO tbl_alumni (stud_no, firstname, middlename, lastname, username, password)
-                            VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt = $db->prepare("INSERT INTO tbl_principal (stud_no, firstname, middlename, lastname, username, password)
+                            VALUES (?, ?, ?, ?, ?)");
     
     if ($stmt === false) {
         die("Prepare failed: " . $db->error);

@@ -41,7 +41,7 @@ include '../../includes/graph-data.php';
     <div class="container-fluid py-4">
 
         <?php if ($_SESSION['role'] == "Super Administrator" || $_SESSION['role'] == "Admin") {?>
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-lg-6 mt-4 mt-lg-0 ">
               <div class="card mb-5">
                 <div class="card-header pb-0 p-3">
@@ -259,7 +259,7 @@ include '../../includes/graph-data.php';
       </div>
     </div>
   </div>
-</div>
+</div> -->
 </div>
 
           <div class="row">
@@ -387,7 +387,7 @@ $alumni_query = "SELECT emp_status_id FROM tbl_form WHERE emp_status_id = 3";
             </div>
           </div>
 
-          <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 py-4 mt-4">
+          <!-- <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 py-4 mt-4">
             <div class="card">
               <div class="card-header p-3 pt-2">
                 <div class="icon icon-lg icon-shape bg-gradient-warning shadow-warning text-center border-radius-xl mt-n4 position-absolute">
@@ -416,7 +416,7 @@ $alumni_query = "SELECT emp_status_id FROM tbl_form WHERE emp_status_id = 4";
                 </button></a>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 py-4 mt-4">
             <div class="card">
@@ -1327,7 +1327,39 @@ $alumni_query =
             </div>
           </div>
                 </div>
-        <?php }?>
+        <?php } else if ($_SESSION['role'] == "Principal") {
+    ?><div class="row">
+          <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+              <div class="card-header p-3 pt-2">
+                <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                  <i class="material-icons opacity-10">groups</i>
+                </div>
+                <div class="text-end pt-1">
+                  <p class="text-sm mb-0 text-capitalize">Total Alumni</p>
+                  <?php
+                    $alumni_query = "SELECT alumni_id from tbl_form WHERE program_id='$program_id'";
+                    $user_query_run = mysqli_query($db, $alumni_query);
+
+                  if ($user_total = mysqli_num_rows($user_query_run)) {
+                    echo '<h4 class="mb-0">' . $user_total . '</h4>';
+                } else {
+                    echo '<h4 class="mb-0">No data</h4>';
+                    }
+                  ?>
+                </div>
+              </div>
+              <hr class="dark horizontal my-0">
+              <div class="card-footer p-3">
+                <a href="../alumni/total-alumni-dash.php"  target="_blank"><button class="btn btn-icon btn-3 bg-gradient-dark" type="button">
+                  <span class="btn-inner--text">See more</span>
+                  <span class="btn-inner--icon"><i class="material-icons">visibility</i></span>
+                </button></a>
+              </div>
+            </div>
+          </div>
+                </div>
+        <?php } ?>
 
       <?php include "../../includes/footer.php"?>
     </div>

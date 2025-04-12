@@ -58,12 +58,29 @@ if (!empty($_SESSION['role'])) {
       header("location: ../login/sign-in.php");
       exit();
     }
+
+    elseif ($_SESSION['role'] === "Principal") {
+    $ad_id = $_SESSION['userid'];
+
+    $query_stud = $db->query("SELECT ad_id,img,username FROM tbl_admin WHERE ad_id = '$ad_id'");
+    $row_stud = $query_stud->fetch_array();
+    $user_image = $row_stud['img'];
+    $user_name = $row_stud['username'];
+   
+
+    if ($ad_id == false) {
+      header("location: ../dashboard/dashboard.php");
+      exit();
+    }
+  }
+
   } else {
     session_destroy();
-    header("location: ../login/sign-in.php");
+    header("location: ../dashboard/dashboard.php");
     exit();
   }
 } else {
-  header("location: ../login/sign-in.php");
+  header("location: ../dashboard/dashboard.php");
   exit();
 }
+
