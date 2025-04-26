@@ -270,10 +270,10 @@ include '../../includes/graph-data.php';
                   <i class="material-icons opacity-10">groups</i>
                 </div>
                 <div class="text-end pt-1">
-                  <p class="text-sm mb-0 text-capitalize">Total Alumni</p>
+                  <p class="text-sm mb-0 text-capitalize">Total Users</p>
                   <?php
-$alumni_query = "SELECT alumni_id from tbl_form";
-    $user_query_run = mysqli_query($db, $alumni_query);
+$custodian_query = "SELECT custodian_id from tbl_custodian";
+    $user_query_run = mysqli_query($db, $custodian_query);
 
     if ($user_total = mysqli_num_rows($user_query_run)) {
         echo '<h4 class="mb-0">' . $user_total . '</h4>';
@@ -302,7 +302,7 @@ $alumni_query = "SELECT alumni_id from tbl_form";
                   <i class="material-icons opacity-10">groups</i>
                 </div>
                 <div class="text-end pt-1">
-                  <p class="text-sm mb-0 text-capitalize">Full-time</p>
+                  <p class="text-sm mb-0 text-capitalize">Custodians</p>
 
                   <?php
 $alumni_query = "SELECT emp_status_id FROM tbl_form WHERE emp_status_id = 1";
@@ -333,7 +333,7 @@ $alumni_query = "SELECT emp_status_id FROM tbl_form WHERE emp_status_id = 1";
                   <i class="material-icons opacity-10">groups</i>
                 </div>
                 <div class="text-end pt-1">
-                  <p class="text-sm mb-0 text-capitalize">Part-time</p>
+                  <p class="text-sm mb-0 text-capitalize">Admins</p>
                   <?php
 $alumni_query = "SELECT emp_status_id FROM tbl_form WHERE emp_status_id = 2";
     $user_query_run = mysqli_query($db, $alumni_query);
@@ -363,7 +363,7 @@ $alumni_query = "SELECT emp_status_id FROM tbl_form WHERE emp_status_id = 2";
                   <i class="material-icons opacity-10">groups</i>
                 </div>
                 <div class="text-end pt-1">
-                  <p class="text-sm mb-0 text-capitalize">Self-employed</p>
+                  <p class="text-sm mb-0 text-capitalize">Availability</p>
                   <?php
 $alumni_query = "SELECT emp_status_id FROM tbl_form WHERE emp_status_id = 3";
     $user_query_run = mysqli_query($db, $alumni_query);
@@ -418,7 +418,7 @@ $alumni_query = "SELECT emp_status_id FROM tbl_form WHERE emp_status_id = 4";
             </div>
           </div> -->
 
-          <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 py-4 mt-4">
+          <!-- <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 py-4 mt-4">
             <div class="card">
               <div class="card-header p-3 pt-2">
                 <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
@@ -452,9 +452,9 @@ $alumni_query =
                 </button></a>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 py-4 mt-4">
+          <!-- <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 py-4 mt-4">
             <div class="card">
               <div class="card-header p-3 pt-2">
                 <div class="icon icon-lg icon-shape bg-gradient-secondary shadow-secondary text-center border-radius-xl mt-n4 position-absolute">
@@ -488,9 +488,9 @@ $alumni_query =
                 </button></a>
               </div>
             </div>
-          </div>
+          </div> -->
 
-<div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 py-4 mt-4">
+          <!-- <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 py-4 mt-4">
             <div class="card">
               <div class="card-header p-3 pt-2">
                 <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
@@ -524,9 +524,9 @@ $alumni_query =
                 </button> </a>
               </div>
             </div>
-          </div>
+          </div> -->
 
-            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 py-4">
+            <!-- <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 py-4">
             <div class="card">
               <div class="card-header p-3 pt-2">
                 <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
@@ -560,8 +560,8 @@ $alumni_query =
                 </button></a>
               </div>
             </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 py-4">
+          </div> -->
+          <!-- <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 py-4">
             <div class="card">
               <div class="card-header p-3 pt-2">
                 <div class="icon icon-lg icon-shape bg-gradient-warning shadow-warning text-center border-radius-xl mt-n4 position-absolute">
@@ -595,8 +595,8 @@ $alumni_query =
                 </button></a>
               </div>
             </div>
-          </div>
-<div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 py-4">
+          </div> -->
+          <!-- <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 py-4">
             <div class="card">
               <div class="card-header p-3 pt-2">
                 <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
@@ -630,8 +630,8 @@ $alumni_query =
                 </button></a>
               </div>
             </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 py-4">
+          </div> -->
+          <!-- <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 py-4">
             <div class="card">
               <div class="card-header p-3 pt-2">
                 <div class="icon icon-lg icon-shape bg-gradient-danger shadow-danger text-center border-radius-xl mt-n4 position-absolute">
@@ -665,8 +665,9 @@ $alumni_query =
                 </button></a>
               </div>
             </div>
+          </div> -->
           </div>
-                </div>
+
         <?php } else if ($_SESSION['role'] == "Registrar") {
     ?> <div class="row">
             <div class="col-lg-6 mt-4 mt-lg-0 ">
@@ -897,10 +898,10 @@ $alumni_query =
                   <i class="material-icons opacity-10">groups</i>
                 </div>
                 <div class="text-end pt-1">
-                  <p class="text-sm mb-0 text-capitalize">Total Alumni</p>
+                  <p class="text-sm mb-0 text-capitalize">Total Users</p>
                   <?php
-$alumni_query = "SELECT alumni_id from tbl_form";
-    $user_query_run = mysqli_query($db, $alumni_query);
+$custodian_query = "SELECT custodian_id from tbl_custodian";
+    $user_query_run = mysqli_query($db, $custodian_query);
 
     if ($user_total = mysqli_num_rows($user_query_run)) {
         echo '<h4 class="mb-0">' . $user_total . '</h4>';
@@ -1304,7 +1305,7 @@ $alumni_query =
                   <i class="material-icons opacity-10">groups</i>
                 </div>
                 <div class="text-end pt-1">
-                  <p class="text-sm mb-0 text-capitalize">Total Alumni</p>
+                  <p class="text-sm mb-0 text-capitalize">Total Users</p>
                   <?php
                     $alumni_query = "SELECT alumni_id from tbl_form WHERE program_id='$program_id'";
                     $user_query_run = mysqli_query($db, $alumni_query);

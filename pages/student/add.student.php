@@ -172,7 +172,7 @@ exit;
 <script>
 <?php
   if (!empty($_SESSION['studentAdded'])) { ?>
-Swal.fire("Student", "Added Successfully ", "success");
+Swal.fire("Student", "Added Successfully", "success");
 <?php
   unset($_SESSION['studentAdded']);
   }?>
