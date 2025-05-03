@@ -74,11 +74,27 @@ if (!empty($_SESSION['role'])) {
     }
   }
 
+  elseif ($_SESSION['role'] === "Dean") {
+    $ad_id = $_SESSION['userid'];
+
+    $query_stud = $db->query("SELECT dean_id FROM tbl_dean WHERE ad_id = '$ad_id'");
+    $row_stud = $query_stud->fetch_array();
+    $user_image = $row_stud['img'];
+    $user_name = $row_stud['username'];
+   
+
+    if ($ad_id == false) {
+      header("location: ../dashboard/dashboard.php");
+      exit();
+    }
+  }
+
   } else {
     session_destroy();
     header("location: ../dashboard/dashboard.php");
     exit();
   }
+
 } else {
   header("location: ../dashboard/dashboard.php");
   exit();

@@ -1294,7 +1294,7 @@ $alumni_query =
               </div>
             </div>
           </div>
-                </div>
+        </div>
             
         <?php } else if ($_SESSION['role'] == "Alum Stud") {
     ?><div class="row">
@@ -1359,9 +1359,43 @@ $alumni_query =
               </div>
             </div>
           </div>
+        </div>
+        <?php } else if ($_SESSION['role'] == "Dean") {
+        ?><div class="row">
+          <div class="row">
+          <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+              <div class="card-header p-3 pt-2">
+                <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                  <i class="material-icons opacity-10">groups</i>
                 </div>
-        <?php } ?>
+                <div class="text-end pt-1">
+                  <p class="text-sm mb-0 text-capitalize">Total Alumni</p>
+                  <?php
+                    $alumni_query = "SELECT dean_id from tbl_form WHERE program_id='$program_id'";
+                    $user_query_run = mysqli_query($db, $alumni_query);
 
+                  if ($user_total = mysqli_num_rows($user_query_run)) {
+                    echo '<h4 class="mb-0">' . $user_total . '</h4>';
+                } else {
+                    echo '<h4 class="mb-0">No data</h4>';
+                    }
+                  ?>
+                </div>
+              </div>
+              <hr class="dark horizontal my-0">
+              <div class="card-footer p-3">
+                <a href="/pages/dashboard/dashboard.php"  target="_blank"><button class="btn btn-icon btn-3 bg-gradient-dark" type="button">
+                  <span class="btn-inner--text">See more</span>
+                  <span class="btn-inner--icon"><i class="material-icons">visibility</i></span>
+                </button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <?php } ?>
+        
       <?php include "../../includes/footer.php"?>
     </div>
   </main>

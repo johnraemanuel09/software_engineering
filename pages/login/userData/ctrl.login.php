@@ -22,6 +22,8 @@ if (isset($_POST['login'])) {
   $principal = mysqli_query($db, "SELECT * FROM tbl_principal WHERE username = '$username'");
   $numrow5 = mysqli_num_rows($principal);
 
+  $dean = mysqli_query($db, "SELECT * FROM tbl_dean WHERE username = '$username'");
+  $numrow6 = mysqli_num_rows($dean);
   
 
   if ($numrow > 0) {
@@ -97,6 +99,23 @@ if (isset($_POST['login'])) {
             exit();
         }
     }
+}
+
+elseif ($numrow6 > 0) {
+  while ($row = mysqli_fetch_array($dean)) {
+      $hashedPwdCheck = password_verify($password, $row['password']);
+      if ($hashedPwdCheck == false) {
+          $_SESSION['sessionP'] = true;
+          header("location: ../sign-in.php");
+          exit();
+      } elseif ($hashedPwdCheck == true) {
+          $_SESSION['role'] = "Dean";
+          $_SESSION['userid'] = $row['dean_id'];
+          $_SESSION['name'] = $row['name'];
+          header("location: ../../dashboard/dashboard.php");
+          exit();
+      }
+  }
 }
 
   // elseif ($numrow2 > 0) {

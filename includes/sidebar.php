@@ -337,10 +337,19 @@
                   <span class="nav-link-text ms-1">Add Student</span>
                 </a>
               </li>
+
+              <li class="nav-item ">
+                <a class="nav-link text-white " href="../../pages/dean/add.dean.php">
+                  <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                    <i class="material-icons opacity-10">person_add</i>
+                  </div>
+                  <span class="nav-link-text ms-1">Add Dean</span>
+                </a>
+              </li>
             </ul>
           </div>
         </li>
-
+        
         <hr class="horizontal light mt-1 mb-1">
         <li class="nav-item">
           <a data-bs-toggle="collapse" href="#ecommerceExamples" class="nav-link text-white " aria-controls="ecommerceExamples" role="button" aria-expanded="false">
@@ -631,6 +640,77 @@ if ($num > 0) {
 
     <?php } else if ($_SESSION['role'] == "Principal") {
             ?>
+      <ul class="navbar-nav">
+
+        <li class="nav-item">
+          <a class="nav-link text-white active bg-gradient-primary" href="../../pages/dashboard/dashboard.php">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">dashboard</i>
+            </div>
+            <span class="nav-link-text ms-1">Dashboard</span>
+          </a>
+        </li>
+        <hr class="horizontal light mt-3 ">
+        <li class="nav-item mt-0">
+          <a data-bs-toggle="collapse" href="#ProfileNav" class="nav-link text-white" aria-controls="ProfileNav" role="button" aria-expanded="false">
+            <?php 
+            $getImg = mysqli_query($db, "SELECT img FROM tbl_alumni WHERE alumni_id = '$alumni_id'");
+                  while ($row = mysqli_fetch_array($getImg)) {
+            if (empty($row['img'])) {
+              echo '<img class="avatar" style="height:45px; width:45px;" src="../../assets/img/image.png"/>';
+            } else {
+              echo ' <img class="avatar" style="height:45px; width:45px;" src="data:image/jpeg;base64,' . base64_encode($row['img']) . '" "/>';
+            } }?>
+            <span class="nav-link-text ms-2 ps-1"><?php echo $user_name; ?></span>
+          </a>
+          <div class="collapse" id="ProfileNav" style="">
+            <ul class="nav ">
+              <li class="nav-item">
+                <a class="nav-link text-white " href="../../pages/alumni/edit-alumni.php">
+                  <span class="fa fa-user me-sm-1"> </span>
+                  <span class="sidenav-normal  ms-3  ps-1 "> Edit Profile </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white " href="../login/userData/ctrl.logout.php">
+                  <span class="fa fa-user me-sm-1"> </span>
+                  <span class="sidenav-normal  ms-3  ps-1 "> Logout </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <hr class="horizontal light mb-1">
+        <li class="nav-item mt-3">
+          <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Form</h6>
+        </li>
+        <?php
+        $verify = $db->query("SELECT alumni_id FROM tbl_form WHERE alumni_id = $alumni_id");
+$num = $verify->num_rows;
+
+if ($num > 0) {
+    echo '<li class="nav-item">
+          <a class="nav-link text-white " href="../../pages/alumni/my_form.php">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">sticky_note_2</i>
+            </div>
+            <span class="nav-link-text ms-1">Edit Form</span>
+          </a>
+        </li>';
+} else {
+    echo '<li class="nav-item">
+          <a class="nav-link text-white " href="../../pages/alumni/fill_up_form.php">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">sticky_note_2</i>
+            </div>
+            <span class="nav-link-text ms-1">Fill Up Form</span>
+          </a>
+        </li>';
+} ?> 
+      
+      </ul>
+      
+      <?php } else if ($_SESSION['role'] == "Dean") { ?>
       <ul class="navbar-nav">
 
         <li class="nav-item">
